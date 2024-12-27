@@ -13,19 +13,20 @@ import org.junit.jupiter.api.function.Executable;
 
 
 class SumCalculatorTest {
+    SumCalculator sumCalculator;
     @BeforeEach
     void sumCalculatorObject(){
-        SumCalculator sumCalculator = new SumCalculator();
+        sumCalculator = new SumCalculator();
     }
 
     @Test
     void sumCalculatorWorksOKFor3(){
-        assertEquals(6, new SumCalculator().sum(3));
+        assertEquals(6, sumCalculator.sum(3));
     }
 
     @Test
     void sumCalculatorWorksOKFor1(){
-        assertEquals(1, new SumCalculator().sum(1));
+        assertEquals(1, sumCalculator.sum(1));
     }
 
     @Test
@@ -34,7 +35,7 @@ class SumCalculatorTest {
         assertThrows(IllegalArgumentException.class, new Executable(){
             @Override
             public void execute() throws Throwable {
-                new SumCalculator().sum(0 );
+                sumCalculator.sum(0 );
             }
         });
     }
